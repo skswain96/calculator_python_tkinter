@@ -1,21 +1,20 @@
-#-*-coding: utf-8-*-
 from tkinter import *
 import math
 
 class calc:
 	def getandreplace(self):
-		"""replace x with * and ÷ with /"""
+		
 		
 		self.expression = self.e.get()
 		self.newtext=self.expression.replace(self.newdiv,'/')
 		self.newtext=self.newtext.replace('x','*')
 
 	def equals(self):
-		"""when the equal button is pressed"""
+		
 
 		self.getandreplace()
 		try: 
-			self.value= eval(self.newtext) #evaluate the expression using the eval function
+			self.value= eval(self.newtext) 
 		except SyntaxError or NameErrror:
 			self.e.delete(0,END)
 			self.e.insert(0,'Invalid Input!')
@@ -24,11 +23,11 @@ class calc:
 			self.e.insert(0,self.value)
 	
 	def squareroot(self):
-		"""squareroot method"""
+		
 		
 		self.getandreplace()
 		try: 
-			self.value= eval(self.newtext) #evaluate the expression using the eval function
+			self.value= eval(self.newtext) 
 		except SyntaxError or NameErrror:
 			self.e.delete(0,END)
 			self.e.insert(0,'Invalid Input!')
@@ -38,11 +37,11 @@ class calc:
 			self.e.insert(0,self.sqrtval)
 
 	def square(self):
-		"""square method"""
+		
 		
 		self.getandreplace()
 		try: 
-			self.value= eval(self.newtext) #evaluate the expression using the eval function
+			self.value= eval(self.newtext) 
 		except SyntaxError or NameErrror:
 			self.e.delete(0,END)
 			self.e.insert(0,'Invalid Input!')
@@ -52,7 +51,7 @@ class calc:
 			self.e.insert(0,self.sqval)
 	
 	def clearall(self): 
-		"""when clear button is pressed,clears the text input area"""
+		
 		self.e.delete(0,END)
 	
 	def clear1(self):
@@ -61,16 +60,16 @@ class calc:
 		self.e.insert(0,self.txt)
 
 	def action(self,argi): 
-		"""pressed button's value is inserted into the end of the text area"""
+		
 		self.e.insert(END,argi)
 	
 	def __init__(self,master):
-		"""Constructor method"""
+		
 		master.title('Calulator') 
 		master.geometry()
 		self.e = Entry(master)
 		self.e.grid(row=0,column=0,columnspan=6,pady=3)
-		self.e.focus_set() #Sets focus on the input text area
+		self.e.focus_set() 
 				
 		self.div='÷'
 		self.newdiv=self.div
@@ -101,5 +100,5 @@ class calc:
 		Button(master,text="x²",width=3,command=lambda:self.square()).grid(row=3, column=5)
 #Main
 root = Tk()
-obj=calc(root) #object instantiated
+obj=calc(root) 
 root.mainloop()
